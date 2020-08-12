@@ -1,0 +1,9 @@
+export { default as IconSuccess } from "./IconSuccess.jsx";
+export { default as IconError } from "./IconError.jsx";
+export { default as IconHome } from "./IconHome.jsx";
+export { default as IconGoogle } from "./IconGoogle.jsx";
+export { default as IconArrowRight } from "./IconArrowRight.jsx";
+export { default as IconFacebook } from "./IconFacebook.jsx";
+export { default as IconTwitter } from "./IconTwitter.jsx";
+export { default as IconInstagram } from "./IconInstagram.jsx";
+export { default as IconCheck } from "./IconCheck.jsx";
