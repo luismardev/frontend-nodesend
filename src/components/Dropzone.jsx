@@ -1,54 +1,54 @@
-import React, { useCallback, useState } from "react";
-import { useDropzone } from "react-dropzone";
-import useApp from "../hooks/useApp";
-import useAuth from "../hooks/useAuth";
-import { Spinner, Form } from "./";
+import React, { useCallback, useState } from 'react'
+import { useDropzone } from 'react-dropzone'
+import useApp from '../hooks/useApp'
+import useAuth from '../hooks/useAuth'
+import { Spinner, Form } from './'
 const Dropzone = () => {
-  const { authenticated } = useAuth();
+  const { authenticated } = useAuth()
 
-  const { showAlert, uploadFile, loading, createLink } = useApp();
-  const [image, setImage] = useState();
+  const { showAlert, uploadFile, loading, createLink } = useApp()
+  const [image, setImage] = useState()
 
   const onDropRejected = () => {
-    let message = {};
+    let message = {}
     if (authenticated) {
       message = {
-        msg: "El archivo no puede ser mayor a 10MB",
-        type: "error",
-      };
+        msg: 'El archivo no puede ser mayor a 10MB',
+        type: 'error'
+      }
     } else {
       message = {
         msg:
-          "El archivo no puede ser mayor a 1MB para tener mas almacenamiento cree una cuenta",
-        type: "error",
-      };
+          'El archivo no puede ser mayor a 1MB para tener mas almacenamiento cree una cuenta',
+        type: 'error'
+      }
     }
 
-    showAlert(message);
-  };
+    showAlert(message)
+  }
 
   const onDropAccepted = useCallback(async (acceptedFiles) => {
     //! crear formData
-    const formData = new FormData();
-    formData.append("records", acceptedFiles[0]);
+    const formData = new FormData()
+    formData.append('records', acceptedFiles[0])
 
     if (/(.jpg|.jpeg|.png)$/i.exec(acceptedFiles[0].type)) {
-      setImage(URL.createObjectURL(acceptedFiles[0]));
+      setImage(URL.createObjectURL(acceptedFiles[0]))
     }
 
-    uploadFile(formData, acceptedFiles[0].path);
-  }, []);
+    uploadFile(formData, acceptedFiles[0].path)
+  }, [])
 
   const {
     getRootProps,
     getInputProps,
     isDragActive,
-    acceptedFiles,
+    acceptedFiles
   } = useDropzone({
     onDropAccepted,
     onDropRejected,
-    maxSize: authenticated ? 10000000 : 1000000,
-  });
+    maxSize: authenticated ? 10000000 : 1000000
+  })
 
   //! extraer contenido del dropzone
   const records = acceptedFiles.map((arr) => (
@@ -77,7 +77,7 @@ const Dropzone = () => {
         </p>
       </div>
     </li>
-  ));
+  ))
 
   return (
     <div className="flex items-center justify-center h-full px-4 bg-gray-200 border-2 border-gray-400 border-dashed">
@@ -108,7 +108,7 @@ const Dropzone = () => {
         <div
           {...getRootProps({
             className:
-              "dropzone w-full h-full flex items-center justify-center",
+              'dropzone w-full h-full flex items-center justify-center'
           })}
         >
           <input className="h-full" {...getInputProps()} />
@@ -136,7 +136,7 @@ const Dropzone = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Dropzone;
+export default Dropzone

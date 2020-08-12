@@ -1,44 +1,44 @@
-import React, { useState } from "react";
-import { Layout } from "../../components";
-import clientAxios from "../../config/axios";
-import useApp from "../../hooks/useApp";
+import React, { useState } from 'react'
+import { Layout } from '../../components'
+import clientAxios from '../../config/axios'
+import useApp from '../../hooks/useApp'
 
-export async function getServerSideProps({ params: { links } }) {
-  const response = await clientAxios.get(`api/links/${links}`);
+export async function getServerSideProps ({ params: { links } }) {
+  const response = await clientAxios.get(`api/links/${links}`)
   return {
     props: {
-      data: response.data,
-    },
-  };
+      data: response.data
+    }
+  }
 }
 
-export async function getServerSidePaths() {
-  const url = await clientAxios.get("api/links");
+export async function getServerSidePaths () {
+  const url = await clientAxios.get('api/links')
 
   return {
     paths: url.data.links.map((link) => ({
-      params: { links: link.url },
+      params: { links: link.url }
     })),
-    fallback: false,
-  };
+    fallback: false
+  }
 }
 
 const Links = ({ data }) => {
-  const { showAlert } = useApp();
-  const [havePassword, setHavePassword] = useState(data.password);
-  const [password, setPassword] = useState("");
+  const { showAlert } = useApp()
+  const [havePassword, setHavePassword] = useState(data.password)
+  const [password, setPassword] = useState('')
 
   const verifyPassword = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
       const response = await clientAxios.post(`api/links/${data.url}`, {
-        password,
-      });
-      setHavePassword(response.data.password);
+        password
+      })
+      setHavePassword(response.data.password)
     } catch (error) {
-      showAlert({ msg: error.response.data.msg, type: "error" });
+      showAlert({ msg: error.response.data.msg, type: 'error' })
     }
-  };
+  }
   return (
     <Layout>
       <div className="container min-h-screen">
@@ -86,6 +86,6 @@ const Links = ({ data }) => {
         </div>
       </div>
     </Layout>
-  );
-};
-export default Links;
+  )
+}
+export default Links

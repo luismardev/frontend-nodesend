@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import useApp from "../hooks/useApp";
+import React, { useState } from 'react'
+import useApp from '../hooks/useApp'
 
 const Form = () => {
-  const [enablePassword, setEnablePassword] = useState(false);
-  const { getPassword, getNumDownloads } = useApp();
+  const [enablePassword, setEnablePassword] = useState(false)
+  const { getPassword, getNumDownloads } = useApp()
 
   return (
     <div className="w-full mt-20">
@@ -43,13 +43,13 @@ const Form = () => {
             disabled={!enablePassword}
             type="password"
             className={`w-full px-4 py-3 pr-8 mt-2 leading-none text-black border border-gray-400 rounded appearance-none focus:outline-none focus:border-gray-500  placeholder-black ${
-              enablePassword ? "bg-white" : "bg-gray-400"
+              enablePassword ? 'bg-white' : 'bg-gray-400'
             }`}
           />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form

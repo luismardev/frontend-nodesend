@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import appContenxt from "../context/app/appContenxt";
+import { useContext } from 'react'
+import appContenxt from '../context/app/appContenxt'
 
 const useAuth = () => {
-  const appState = useContext(appContenxt);
+  const appState = useContext(appContenxt)
   const {
-    alert_app,
+    alertApp,
     showAlert,
     uploadFile,
     loading,
@@ -12,11 +12,11 @@ const useAuth = () => {
     url,
     cleanState,
     getPassword,
-    getNumDownloads,
-  } = appState;
+    getNumDownloads
+  } = appState
 
   return {
-    alert_app,
+    alertApp,
     loading,
     showAlert,
     uploadFile,
@@ -24,7 +24,7 @@ const useAuth = () => {
     url,
     cleanState,
     getPassword,
-    getNumDownloads,
-  };
-};
-export default useAuth;
+    getNumDownloads
+  }
+}
+export default useAuth

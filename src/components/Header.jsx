@@ -1,10 +1,10 @@
-import React from "react";
-import Link from "next/link";
-import useAuth from "../hooks/useAuth";
-import { capitalize } from "../helper/fuctions";
-import { IconArrowRight } from "../icons";
+import React from 'react'
+import Link from 'next/link'
+import useAuth from '../hooks/useAuth'
+import { capitalize } from '../helper/fuctions'
+import { IconArrowRight } from '../icons'
 const Header = () => {
-  const { authenticated, user, signOff, loading } = useAuth();
+  const { authenticated, user, signOff, loading } = useAuth()
 
   return (
     <header className="text-gray-700 bg-gray-100 shadow-md body-font">
@@ -31,26 +31,26 @@ const Header = () => {
                   </button>
                 </>
               ) : (
-                  <>
-                    <Link href="/login">
-                      <a className="w-full mr-5 text-center md:w-auto hover:text-gray-900">
+                <>
+                  <Link href="/login">
+                    <a className="w-full mr-5 text-center md:w-auto hover:text-gray-900">
                         Iniciar sesion
                     </a>
-                    </Link>
-                    <Link href="/signup">
-                      <a className="inline-flex items-center justify-center w-full px-3 py-1 mt-4 text-base text-gray-100 transition duration-300 bg-black border-0 rounded md:w-auto focus:outline-none hover:bg-gray-700 md:mt-0">
+                  </Link>
+                  <Link href="/signup">
+                    <a className="inline-flex items-center justify-center w-full px-3 py-1 mt-4 text-base text-gray-100 transition duration-300 bg-black border-0 rounded md:w-auto focus:outline-none hover:bg-gray-700 md:mt-0">
                         Registrate
                       <IconArrowRight className="w-4 h-4 ml-1 text-white fill-current" />
-                      </a>
-                    </Link>
-                  </>
-                )}
+                    </a>
+                  </Link>
+                </>
+              )}
             </>
           )}
         </div>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 
 const IconGoogle = ({ className }) => {
   return (
@@ -20,7 +20,7 @@ const IconGoogle = ({ className }) => {
         fill="#1976D2"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IconGoogle;
+export default IconGoogle

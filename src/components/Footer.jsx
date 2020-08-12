@@ -1,6 +1,6 @@
-import React from "react";
-import Link from "next/link";
-import { IconFacebook, IconTwitter, IconInstagram } from "../icons";
+import React from 'react'
+import Link from 'next/link'
+import { IconFacebook, IconTwitter, IconInstagram } from '../icons'
 const Footer = () => {
   return (
     <footer className="w-full text-gray-700 bg-gray-100 body-font">
@@ -24,6 +24,7 @@ const Footer = () => {
         <span className="inline-flex justify-center mt-4 sm:ml-auto sm:mt-0 sm:justify-start">
           <a
             target="_blank"
+            rel="noreferrer"
             href="https://www.facebook.com/luismardev"
             className="text-gray-500 hover:text-blue-700"
           >
@@ -32,6 +33,7 @@ const Footer = () => {
 
           <a
             target="_blank"
+            rel="noreferrer"
             href="https://twitter.com/luismardev"
             className="ml-3 text-gray-500 hover:text-blue-400"
           >
@@ -40,6 +42,7 @@ const Footer = () => {
 
           <a
             target="_blank"
+            rel="noreferrer"
             href="https://www.instagram.com/luismardev"
             className="ml-3 text-gray-500 hover:text-pink-600"
           >
@@ -48,7 +51,7 @@ const Footer = () => {
         </span>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

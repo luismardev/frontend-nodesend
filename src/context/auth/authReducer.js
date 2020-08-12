@@ -1,4 +1,4 @@
-import Cookies from "js-cookie"
+import Cookies from 'js-cookie'
 
 import {
   SUCCESSFUL_REGISTRATION,
@@ -9,8 +9,8 @@ import {
   AUTHENTICATED_USER,
   SIGN_OFF,
   VERIFY_LOGIN,
-  INVALID_TOKEN,
-} from "../types";
+  INVALID_TOKEN
+} from '../types'
 
 const authReducer = (state, action) => {
   switch (action.type) {
@@ -19,45 +19,45 @@ const authReducer = (state, action) => {
     case SUCCESSFUL_REGISTRATION:
       return {
         ...state,
-        alert_auth: action.payload,
-      };
+        alertAuth: action.payload
+      }
     case SUCCESS_LOGIN:
-      Cookies.set("token", action.payload);
+      Cookies.set('token', action.payload)
       return {
         ...state,
         token: action.payload.token,
-        authenticated: true,
-      };
+        authenticated: true
+      }
     case AUTHENTICATED_USER:
       return {
         ...state,
         user: action.payload,
-        authenticated: true,
-      };
+        authenticated: true
+      }
     case INVALID_TOKEN:
     case SIGN_OFF:
-      Cookies.remove("token");
+      Cookies.remove('token')
       return {
         ...state,
         user: null,
-        token: "",
-        authenticated: null,
-      };
+        token: '',
+        authenticated: null
+      }
     case VERIFY_LOGIN:
       return {
         ...state,
-        loading: action.payload,
-      };
+        loading: action.payload
+      }
     case DELETE_ALERT:
       return {
         ...state,
-        alert_auth: {
+        alertAuth: {
           msg: null,
-          type: null,
-        },
-      };
+          type: null
+        }
+      }
     default:
-      return state;
+      return state
   }
-};
-export default authReducer;
+}
+export default authReducer

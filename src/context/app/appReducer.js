@@ -8,74 +8,74 @@ import {
   SHOW_ALERT,
   CLEAN_STATE,
   ADD_PASSWORD,
-  ADD_NUM_DOWNLOADS,
-} from "../types";
+  ADD_NUM_DOWNLOADS
+} from '../types'
 
 const appReducer = (state, action) => {
   switch (action.type) {
     case UPLOAD_FILE:
       return {
         ...state,
-        loading: action.payload,
-      };
+        loading: action.payload
+      }
     case UPLOAD_FILE_SUCCESS:
       return {
         ...state,
         name: action.payload.name,
-        original_name: action.payload.original_name,
-        loading: null,
-      };
+        originalName: action.payload.originalName,
+        loading: null
+      }
     case UPLOAD_FILE_ERROR:
       return {
         ...state,
-        alert_app: action.payload,
-        loading: null,
-      };
+        alertApp: action.payload,
+        loading: null
+      }
     case CREATE_SUCCESS_LINK:
       return {
         ...state,
-        url: action.payload,
-      };
+        url: action.payload
+      }
     case ADD_PASSWORD:
       return {
         ...state,
-        password: action.payload,
-      };
+        password: action.payload
+      }
     case ADD_NUM_DOWNLOADS:
       return {
         ...state,
-        downloads: action.payload,
-      };
+        downloads: action.payload
+      }
     case CLEAN_STATE:
       return {
         ...state,
-        alert_app: {
+        alertApp: {
           msg: null,
-          type: null,
+          type: null
         },
-        original_name: "",
-        name: "",
+        originalName: '',
+        name: '',
         downloads: 1,
-        password: "",
+        password: '',
         author: null,
-        url: "",
-      };
+        url: ''
+      }
     case CREATE_ERROR_LINK:
     case SHOW_ALERT:
       return {
         ...state,
-        alert_app: action.payload,
-      };
+        alertApp: action.payload
+      }
     case DELETE_ALERT:
       return {
         ...state,
-        alert_app: {
+        alertApp: {
           msg: null,
-          type: null,
-        },
-      };
+          type: null
+        }
+      }
     default:
-      return state;
+      return state
   }
-};
-export default appReducer;
+}
+export default appReducer

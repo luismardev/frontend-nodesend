@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
-import { Header, Footer } from "./";
-import { Alert } from "./";
-import useAuth from "../hooks/useAuth";
-import useApp from "../hooks/useApp";
+import React, { useEffect } from 'react'
+import { Header, Footer, Alert } from './'
+
+import useAuth from '../hooks/useAuth'
+import useApp from '../hooks/useApp'
 
 const Layout = ({ children, showHeader = true, showFooter = true }) => {
-  const { alert_auth, userAuth } = useAuth();
-  const { alert_app } = useApp();
+  const { alertAuth, userAuth } = useAuth()
+  const { alertApp } = useApp()
 
   useEffect(() => {
-    userAuth();
-  }, []);
+    userAuth()
+  }, [])
 
   return (
     <>
@@ -18,8 +18,8 @@ const Layout = ({ children, showHeader = true, showFooter = true }) => {
         {showHeader && <Header />}
 
         <main>{children}</main>
-        {alert_app && <Alert alert={alert_app} />}
-        {alert_auth && <Alert alert={alert_auth} />}
+        {alertApp && <Alert alert={alertApp} />}
+        {alertAuth && <Alert alert={alertAuth} />}
         {showFooter && <Footer />}
       </div>
       <style jsx global>{`
@@ -33,7 +33,7 @@ const Layout = ({ children, showHeader = true, showFooter = true }) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios'
 
 const clientAxios = axios.create({
-  baseURL: process.env.backendURL,
-});
+  baseURL: process.env.backendURL
+})
 
-export default clientAxios;
+export default clientAxios

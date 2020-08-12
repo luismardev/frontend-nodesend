@@ -1,11 +1,11 @@
 module.exports = {
-  purge: ["./src/components/**/*.jsx", "./src/pages/**/*.jsx"],
+  purge: ['./src/components/**/*.jsx', './src/pages/**/*.jsx'],
   theme: {
     container: {
-      center: true,
+      center: true
     },
-    extend: {},
+    extend: {}
   },
   variants: {},
-  plugins: [],
-};
+  plugins: []
+}

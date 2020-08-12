@@ -1,54 +1,54 @@
-import React, { useEffect } from "react";
-import Link from "next/link";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { ErrorForm, Layout } from "../components";
-import useAuth from "../hooks/useAuth";
-import { useRouter } from "next/router";
-import { IconHome, IconGoogle } from "../icons";
+import React, { useEffect } from 'react'
+import Link from 'next/link'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import { ErrorForm, Layout } from '../components'
+import useAuth from '../hooks/useAuth'
+import { useRouter } from 'next/router'
+import { IconHome, IconGoogle } from '../icons'
 const Signup = () => {
-  const { userRegister, authenticated, alert_auth } = useAuth();
+  const { userRegister, authenticated, alertAuth } = useAuth()
 
   //! next router
-  const router = useRouter();
+  const router = useRouter()
   useEffect(() => {
     if (authenticated) {
-      router.push("/");
+      router.push('/')
     }
 
-    if (alert_auth.type === "success") {
-      router.push("/login");
+    if (alertAuth.type === 'success') {
+      router.push('/login')
     }
-  }, [authenticated, alert_auth]);
+  }, [authenticated, alertAuth])
 
   //! formulario y validacion con formik
   const formik = useFormik({
     initialValues: {
-      name: "",
-      password: "",
-      repeatPassword: "",
-      email: "",
+      name: '',
+      password: '',
+      repeatPassword: '',
+      email: ''
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("el nombre es obligatorio"),
+      name: Yup.string().required('el nombre es obligatorio'),
       password: Yup.string()
-        .required("la contraseña es obligatoria")
-        .min(6, "la contraseña debe ser minimo de 6 caracteres"),
+        .required('la contraseña es obligatoria')
+        .min(6, 'la contraseña debe ser minimo de 6 caracteres'),
       repeatPassword: Yup.string()
-        .required("la contraseña es obligatoria")
-        .test("password-match", "la contraseña no coincide", (value) => {
-          return password.value === value;
+        .required('la contraseña es obligatoria')
+        .test('password-match', 'la contraseña no coincide', function (value) {
+          return this.password.value === value
         }),
       email: Yup.string()
-        .required("El correo es obligatorio")
-        .email("Correo invalido"),
+        .required('El correo es obligatorio')
+        .email('Correo invalido')
     }),
     onSubmit: (data) => {
-      const excludeRepeatPassword = ({ repeatPassword, ...rest }) => rest;
-      const newDate = excludeRepeatPassword(data);
-      userRegister(newDate);
-    },
-  });
+      const excludeRepeatPassword = ({ repeatPassword, ...rest }) => rest
+      const newDate = excludeRepeatPassword(data)
+      userRegister(newDate)
+    }
+  })
 
   return (
     <Layout showFooter={false} showHeader={false}>
@@ -57,7 +57,7 @@ const Signup = () => {
           <div
             className="hidden bg-center bg-no-repeat bg-contain lg:block lg:w-1/2"
             style={{
-              backgroundImage: `url(undraw_authentication_fsn5.svg)`,
+              backgroundImage: 'url(undraw_authentication_fsn5.svg)'
             }}
           />
 
@@ -181,8 +181,8 @@ const Signup = () => {
                 />
                 {formik.touched.repeatPassword &&
                   formik.errors.repeatPassword && (
-                    <ErrorForm error={formik.errors.repeatPassword} />
-                  )}
+                  <ErrorForm error={formik.errors.repeatPassword} />
+                )}
               </div>
 
               <div className="mt-8">
@@ -209,7 +209,7 @@ const Signup = () => {
         </div>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup

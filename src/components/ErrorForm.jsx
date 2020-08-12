@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const ErrorForm = ({ error }) => {
   return (
@@ -14,7 +14,7 @@ const ErrorForm = ({ error }) => {
       </span>
       {error}
     </p>
-  );
-};
+  )
+}
 
-export default ErrorForm;
+export default ErrorForm

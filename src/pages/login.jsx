@@ -1,38 +1,38 @@
-import React, { useEffect } from "react";
-import Link from "next/link";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { Layout, ErrorForm } from "../components";
-import useAuth from "../hooks/useAuth";
-import { useRouter } from "next/router";
-import { IconGoogle, IconHome } from "../icons";
+import React, { useEffect } from 'react'
+import Link from 'next/link'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import { Layout, ErrorForm } from '../components'
+import useAuth from '../hooks/useAuth'
+import { useRouter } from 'next/router'
+import { IconGoogle, IconHome } from '../icons'
 const Login = () => {
-  const { userLogin, authenticated } = useAuth();
+  const { userLogin, authenticated } = useAuth()
 
   //! next router
-  const router = useRouter();
+  const router = useRouter()
   useEffect(() => {
     if (authenticated) {
-      router.push("/");
+      router.push('/')
     }
-  }, [authenticated]);
+  }, [authenticated])
 
   //! formulario y validacion con formik
   const formik = useFormik({
     initialValues: {
-      password: "",
-      email: "",
+      password: '',
+      email: ''
     },
     validationSchema: Yup.object({
-      password: Yup.string().required("la contraseña es obligatoria"),
+      password: Yup.string().required('la contraseña es obligatoria'),
       email: Yup.string()
-        .required("El correo es obligatorio")
-        .email("Correo invalido"),
+        .required('El correo es obligatorio')
+        .email('Correo invalido')
     }),
     onSubmit: (data) => {
-      userLogin(data);
-    },
-  });
+      userLogin(data)
+    }
+  })
 
   return (
     <Layout showFooter={false} showHeader={false}>
@@ -41,7 +41,7 @@ const Login = () => {
           <div
             className="hidden bg-center bg-no-repeat bg-contain lg:block lg:w-1/2"
             style={{
-              backgroundImage: `url(undraw_secure_login_pdn4.svg)`,
+              backgroundImage: 'url(undraw_secure_login_pdn4.svg)'
             }}
           ></div>
 
@@ -149,6 +149,6 @@ const Login = () => {
         </div>
       </div>
     </Layout>
-  );
-};
-export default Login;
+  )
+}
+export default Login

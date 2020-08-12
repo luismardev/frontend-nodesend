@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react'
 
-function IconArrowRight({ className }) {
+function IconArrowRight ({ className }) {
   return (
     <svg
       className={className}
@@ -10,7 +10,7 @@ function IconArrowRight({ className }) {
     >
       <path d="M5 12h14m-7-7l7 7-7 7" />
     </svg>
-  );
+  )
 }
 
-export default IconArrowRight;
+export default IconArrowRight
