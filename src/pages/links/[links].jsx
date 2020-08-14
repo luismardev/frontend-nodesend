@@ -3,7 +3,7 @@ import { Layout } from '../../components'
 import clientAxios from '../../config/axios'
 import useApp from '../../hooks/useApp'
 
-export async function getServerSideProps ({ params: { links } }) {
+export async function getServerSideProps({ params: { links } }) {
   const response = await clientAxios.get(`api/links/${links}`)
   return {
     props: {
@@ -12,7 +12,7 @@ export async function getServerSideProps ({ params: { links } }) {
   }
 }
 
-export async function getServerSidePaths () {
+export async function getServerSidePaths() {
   const url = await clientAxios.get('api/links')
 
   return {
@@ -68,21 +68,21 @@ const Links = ({ data }) => {
               </form>
             </>
           ) : (
-            <>
-              <h1 className="text-4xl text-center text-gray-700">
+              <>
+                <h1 className="text-4xl text-center text-gray-700">
                   Descarga tu archivo
               </h1>
-              <div className="flex items-center justify-center mt-10">
-                <a
-                  href={`${process.env.backendURL}api/records/${data.file}`}
-                  className="inline-flex items-center justify-center w-full px-3 py-1 mt-4 text-base text-gray-100 transition duration-300 bg-black border-0 rounded cursor-pointer md:w-auto focus:outline-none hover:bg-gray-700 md:mt-0"
-                  download
-                >
+                <div className="flex items-center justify-center mt-10">
+                  <a
+                    href={`${process.env.NEXT_APP_BACKEND_URL}api/records/${data.file}`}
+                    className="inline-flex items-center justify-center w-full px-3 py-1 mt-4 text-base text-gray-100 transition duration-300 bg-black border-0 rounded cursor-pointer md:w-auto focus:outline-none hover:bg-gray-700 md:mt-0"
+                    download
+                  >
                     Aqui
                 </a>
-              </div>
-            </>
-          )}
+                </div>
+              </>
+            )}
         </div>
       </div>
     </Layout>
