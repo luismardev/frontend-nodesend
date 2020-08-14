@@ -70,7 +70,7 @@ const Links = ({ data }) => {
           ) : (
             <>
               <h1 className="text-4xl text-center text-gray-700">
-                Descarga tu archivo
+                  Descarga tu archivo
               </h1>
               <div className="flex items-center justify-center mt-10">
                 <a
@@ -78,7 +78,7 @@ const Links = ({ data }) => {
                   className="inline-flex items-center justify-center w-full px-3 py-1 mt-4 text-base text-gray-100 transition duration-300 bg-black border-0 rounded cursor-pointer md:w-auto focus:outline-none hover:bg-gray-700 md:mt-0"
                   download
                 >
-                  Aqui
+                    Aqui
                 </a>
               </div>
             </>
