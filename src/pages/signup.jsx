@@ -73,7 +73,7 @@ const Signup = () => {
               <p className="text-xl text-center text-gray-600">Bienvenido!</p>
 
               <a
-                href="#"
+                href={`${process.env.NEXT_APP_BACKEND_URL}api/auth/google`}
                 className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100"
               >
                 <div className="px-4 py-3">
