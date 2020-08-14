@@ -57,7 +57,7 @@ const Login = () => {
               </h2>
               <p className="text-xl text-center text-gray-600">Bienvenido!</p>
               <a
-                href={`${process.env.backendURL}api/auth`}
+                href={`${process.env.backendURL}api/auth/google`}
                 className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100"
               >
                 <div className="px-4 py-3">

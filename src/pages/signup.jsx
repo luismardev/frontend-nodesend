@@ -35,10 +35,8 @@ const Signup = () => {
         .required('la contraseña es obligatoria')
         .min(6, 'la contraseña debe ser minimo de 6 caracteres'),
       repeatPassword: Yup.string()
-        .required('la contraseña es obligatoria')
-        .test('password-match', 'la contraseña no coincide', function (value) {
-          return this.password.value === value
-        }),
+        .oneOf([Yup.ref('password')], 'la contraseña no coincide')
+        .required('Campo requerido'),
       email: Yup.string()
         .required('El correo es obligatorio')
         .email('Correo invalido')
@@ -83,7 +81,7 @@ const Signup = () => {
                 </div>
 
                 <span className="w-5/6 px-4 py-3 font-bold text-center text-gray-600">
-                  Resgistrate con Google
+                  Iniciar sesion con Google
                 </span>
               </a>
             </div>
