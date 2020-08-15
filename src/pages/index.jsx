@@ -37,8 +37,8 @@ const Index = () => {
                       Enlace copiado <IconCheck className="w-6 h-6" />
                     </span>
                   ) : (
-                      <span>Copiar enlace</span>
-                    )}
+                    <span>Copiar enlace</span>
+                  )}
                 </button>
                 <button
                   onClick={() => cleanState()}
@@ -48,31 +48,31 @@ const Index = () => {
                 </button>
               </div>
             ) : (
-                <>
-                  <div className="mx-2 mb-3 sm:mt-16 md:flex-1 md:mt-0">
-                    <Dropzone />
-                  </div>
-                  <div className="mx-2 mb-3 sm:mt-16 md:flex-1 md:mt-0">
-                    <h2 className="my-4 font-sans text-4xl font-bold text-gray-800">
+              <>
+                <div className="mx-2 mb-3 sm:mt-16 md:flex-1 md:mt-0">
+                  <Dropzone />
+                </div>
+                <div className="mx-2 mb-3 sm:mt-16 md:flex-1 md:mt-0">
+                  <h2 className="my-4 font-sans text-4xl font-bold text-gray-800">
                       Compartir archivos de forma sencilla y privada
                   </h2>
-                    <p className="text-lg leading-loose">
-                      <span className="font-bold text-indigo-500">Node Send </span>
+                  <p className="text-lg leading-loose">
+                    <span className="font-bold text-indigo-500">Node Send </span>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Earum ipsum minima eligendi numquam sed labore eaque alias
                   rerum quae libero! Lorem ipsum dolor sit amet consectetur
                   adipisicing elit. Corrupti, laboriosam.
                   </p>
-                    {!authenticated && !loading && (
-                      <Link href="/signup">
-                        <a className="text-lg font-bold text-indigo-500 hover:text-indigo-700">
+                  {!authenticated && !loading && (
+                    <Link href="/signup">
+                      <a className="text-lg font-bold text-indigo-500 hover:text-indigo-700">
                           Crea una cuenta para mayores beneficios
                       </a>
-                      </Link>
-                    )}
-                  </div>
-                </>
-              )}
+                    </Link>
+                  )}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
